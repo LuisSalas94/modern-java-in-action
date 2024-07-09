@@ -75,5 +75,9 @@ public class FilteringApples {
             }
         });
         System.out.println(redApples2);
+
+        // [Apple{weight=180, color=RED}, Apple{weight=220, color=RED}]
+        List<Apple> result = filterApples(inventory, (Apple apple) -> Color.RED.equals(apple.getColor()));
+        System.out.println(result);
     }
 }
