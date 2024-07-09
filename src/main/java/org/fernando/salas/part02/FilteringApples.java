@@ -34,9 +34,21 @@ public class FilteringApples {
         }
     }
 
+    public static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (predicate.test(e)) {
+                result.add(e);
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         List<Apple> inventory = Arrays.asList(new Apple(80, Color.GREEN), new Apple(155, Color.GREEN),
                 new Apple(180, Color.RED), new Apple(220, Color.RED));
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
         List<Apple> greenApples = filterApplesByColor(inventory, Color.GREEN);
         // [Apple{weight=80, color=GREEN}, Apple{weight=155, color=GREEN}]
@@ -79,5 +91,14 @@ public class FilteringApples {
         // [Apple{weight=180, color=RED}, Apple{weight=220, color=RED}]
         List<Apple> result = filterApples(inventory, (Apple apple) -> Color.RED.equals(apple.getColor()));
         System.out.println(result);
+
+        // [Apple{weight=180, color=RED}, Apple{weight=220, color=RED}]
+        List<Apple> redApplesT = filter(inventory, (Apple apple) -> Color.RED.equals(apple.getColor()));
+        System.out.println(redApplesT);
+
+        // [2, 4, 6, 8, 10]
+        List<Integer> evenNumbers = filter(numbers, (Integer i) -> i % 2 == 0);
+        System.out.println(evenNumbers);
+
     }
 }
