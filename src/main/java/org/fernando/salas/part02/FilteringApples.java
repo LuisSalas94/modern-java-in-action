@@ -66,5 +66,14 @@ public class FilteringApples {
         An apple of 220 g
         */
         prettyPrintApple(inventory, new AppleSimpleFormatter());
+
+        // [Apple{weight=180, color=RED}, Apple{weight=220, color=RED}]
+        List<Apple> redApples2 = filterApples(inventory, new ApplePredicate() {
+            @Override
+            public boolean test(Apple apple) {
+                return Color.RED.equals(apple.getColor());
+            }
+        });
+        System.out.println(redApples2);
     }
 }
