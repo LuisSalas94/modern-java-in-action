@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiPredicate;
+import java.util.function.ToIntFunction;
 
 public class Lambdas {
     public static List<Apple> filter(List<Apple> inventory, ApplePredicate p) {
@@ -72,6 +74,13 @@ public class Lambdas {
         Runnable o = () -> {
             System.out.println("ricky");
         };
+
+        // Method References
+        //ToIntFunction<String> stringToInt = (String s) -> Integer.parseInt(s);
+        ToIntFunction<String> stringToInt = Integer::parseInt;
+
+        //BiPredicate<List<String>, String> contains = (list2, element) -> list2.contains(element);
+        BiPredicate<List<String>, String> contains = List::contains;
 
     }
 }
