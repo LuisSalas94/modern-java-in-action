@@ -69,5 +69,9 @@ public class Lambdas {
                 (String s) -> s.length());
         System.out.println("List Length: " + list);
 
+        Runnable o = () -> {
+            System.out.println("ricky");
+        };
+
     }
 }
