@@ -51,6 +51,16 @@ public class DishDemo {
         // [season fruit, rice]
         System.out.println(lowCaloricDishesName2);
 
+        List<String> threeHighCaloricDishNames =
+                menu.stream()
+                        .filter(dish -> dish.getCalories() > 300)
+                        .map(Dish::getName)
+                        .limit(3)
+                        .collect(Collectors.toList());
+
+        // [pork, beef, chicken]
+        System.out.println(threeHighCaloricDishNames);
+
 
     }
 }
