@@ -6,6 +6,9 @@ public class Apple {
     private int weight = 0;
     private Color color;
 
+    public Apple() {
+    }
+
     public Apple(int weight, Color color) {
         this.weight = weight;
         this.color = color;

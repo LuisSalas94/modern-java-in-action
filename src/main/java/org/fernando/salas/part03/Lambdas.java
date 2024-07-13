@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiPredicate;
+import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 public class Lambdas {
@@ -81,6 +82,7 @@ public class Lambdas {
 
         //BiPredicate<List<String>, String> contains = (list2, element) -> list2.contains(element);
         BiPredicate<List<String>, String> contains = List::contains;
+
 
     }
 }
