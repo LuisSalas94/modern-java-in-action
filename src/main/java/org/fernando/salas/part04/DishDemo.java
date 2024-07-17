@@ -69,6 +69,14 @@ public class DishDemo {
         // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
         System.out.println("Names: " + names);
 
-        
+        // Collections: external iteration using an iterator behind the scene
+        List<String> names2 = new ArrayList<>();
+        Iterator<Dish> iterator = menu.iterator();
+        while (iterator.hasNext()) {
+            Dish dish = iterator.next();
+            names2.add(dish.getName());
+        }
+        // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
+        System.out.println("Name2: " + names2);
     }
 }
