@@ -78,5 +78,11 @@ public class DishDemo {
         }
         // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
         System.out.println("Name2: " + names2);
+
+        List<String> names3 = menu.stream()
+                .map(Dish::getName)
+                .toList();
+        // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
+        System.out.println("Names3: " + names3);
     }
 }
