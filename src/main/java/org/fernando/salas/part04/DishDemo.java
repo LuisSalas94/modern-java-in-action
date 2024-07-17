@@ -61,6 +61,14 @@ public class DishDemo {
         // [pork, beef, chicken]
         System.out.println(threeHighCaloricDishNames);
 
+        // Collections: External Iteration with a for-each loop
+        List<String> names = new ArrayList<>();
+        for (Dish dish : menu) {
+            names.add(dish.getName());
+        }
+        // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
+        System.out.println("Names: " + names);
 
+        
     }
 }

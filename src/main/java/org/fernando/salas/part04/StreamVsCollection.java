@@ -10,6 +10,6 @@ public class StreamVsCollection {
         Stream<String> s = names.stream();
         s.forEach(System.out::println);
         // Exception in thread "main" java.lang.IllegalStateException: stream has already been operated upon or closed
-        // s.forEach(System.out::println);
+        //s.forEach(System.out::println);
     }
 }
