@@ -69,7 +69,7 @@ public class DishDemo {
         // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
         System.out.println("Names: " + names);
 
-        // Collections: external iteration using an iterator behind the scene
+        // Collections: External iteration using an iterator behind the scene
         List<String> names2 = new ArrayList<>();
         Iterator<Dish> iterator = menu.iterator();
         while (iterator.hasNext()) {
@@ -79,10 +79,30 @@ public class DishDemo {
         // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
         System.out.println("Name2: " + names2);
 
+        // Streams: internal iteration
         List<String> names3 = menu.stream()
                 .map(Dish::getName)
                 .toList();
         // [pork, beef, chicken, french fries, rice, season fruit, pizza, prawns, salmon]
         System.out.println("Names3: " + names3);
+
+        // Quiz 4.1 External vs. internal iteration
+        List<String> highCaloricDishes = new ArrayList<>();
+        Iterator<Dish> iteratorDish = menu.iterator();
+        while (iteratorDish.hasNext()) {
+            Dish dish = iteratorDish.next();
+            if (dish.getCalories() > 300) {
+                highCaloricDishes.add(dish.getName());
+            }
+        }
+        // [pork, beef, chicken, french fries, rice, pizza, prawns, salmon]
+        System.out.println("HighCaloricDishes: " + highCaloricDishes);
+
+        List<String> highCaloricDishes2 = menu.stream()
+                .filter(dish -> dish.getCalories() > 300)
+                .map(Dish::getName)
+                .toList();
+        // [pork, beef, chicken, french fries, rice, pizza, prawns, salmon]
+        System.out.println("highCaloricDishes2: " + highCaloricDishes2);
     }
 }
