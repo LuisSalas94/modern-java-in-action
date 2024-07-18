@@ -4,7 +4,7 @@ import org.fernando.salas.part04.Dish;
 
 import java.util.Arrays;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 
 public class Slicing {
@@ -29,6 +29,15 @@ public class Slicing {
                 .toList();
         // [Dish{name='seasonal fruit'}, Dish{name='prawns'}]
         System.out.println("Slice Menu: " + sliceMenu1);
+
+        // USING DROPWHILE: Returns, if this stream is ordered, a stream consisting of the remaining
+        // elements of this stream after dropping the longest prefix of elements that match the given
+        // predicate.
+        List<Dish> sliceMenu2 = specialMenu.stream()
+                .dropWhile(dish -> dish.getCalories() < 320)
+                .toList();
+        // [Dish{name='rice'}, Dish{name='chicken'}, Dish{name='french fries'}]
+        System.out.println("Slice Menu: " + sliceMenu2);
 
     }
 }
