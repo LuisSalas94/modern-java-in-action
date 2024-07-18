@@ -1,6 +1,7 @@
 package org.fernando.salas.part05;
 
 import org.fernando.salas.part04.Dish;
+import org.fernando.salas.part04.DishDemo;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +16,8 @@ public class Slicing {
                 new Dish("rice", true, 350, Dish.Type.OTHER),
                 new Dish("chicken", false, 400, Dish.Type.MEAT),
                 new Dish("french fries", true, 530, Dish.Type.OTHER));
+
+        List<Dish> menu = DishDemo.menu;
 
         List<Dish> filteredMenu = specialMenu.stream()
                 .filter(dish -> dish.getCalories() < 320)
@@ -53,6 +56,14 @@ public class Slicing {
                 .toList();
         // [Dish{name='french fries'}]
         System.out.println("Dishes: " + dishes2);
+
+        // Quiz 5.1
+        List<Dish> onlyMeat = menu.stream()
+                .filter(dish -> dish.getType() == Dish.Type.MEAT)
+                .limit(2)
+                .toList();
+        // [Dish{name='pork'}, Dish{name='beef'}]
+        System.out.println("Only Meat: " + onlyMeat);
 
     }
 }
