@@ -104,5 +104,14 @@ public class DishDemo {
                 .toList();
         // [pork, beef, chicken, french fries, rice, pizza, prawns, salmon]
         System.out.println("highCaloricDishes2: " + highCaloricDishes2);
+
+        // Streams Operations
+        List<String> names4 = menu.stream()
+                .filter(dish -> dish.getCalories() > 300)
+                .map(Dish::getName)
+                .limit(3)
+                .toList();
+        // [pork, beef, chicken]
+        System.out.println("Names4: " + names4);
     }
 }
