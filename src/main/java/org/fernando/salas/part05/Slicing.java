@@ -39,5 +39,14 @@ public class Slicing {
         // [Dish{name='rice'}, Dish{name='chicken'}, Dish{name='french fries'}]
         System.out.println("Slice Menu: " + sliceMenu2);
 
+        // Truncating a stream
+        List<Dish> dishes = specialMenu.stream()
+                .filter(dish -> dish.getCalories() > 300)
+                .limit(3)
+                .toList();
+        // [Dish{name='rice'}, Dish{name='chicken'}, Dish{name='french fries'}]
+        System.out.println("Dishes: " + dishes);
+
+
     }
 }
