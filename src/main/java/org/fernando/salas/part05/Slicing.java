@@ -47,6 +47,12 @@ public class Slicing {
         // [Dish{name='rice'}, Dish{name='chicken'}, Dish{name='french fries'}]
         System.out.println("Dishes: " + dishes);
 
+        List<Dish> dishes2 = specialMenu.stream()
+                .filter(dish -> dish.getCalories() > 300)
+                .skip(2)
+                .toList();
+        // [Dish{name='french fries'}]
+        System.out.println("Dishes: " + dishes2);
 
     }
 }
