@@ -8,10 +8,17 @@ public class StreamsOps {
 
     public static void main(String[] args) {
         List<String> names = menu.stream()
-                .filter(dish -> dish.getCalories() > 300)
-                .map(Dish::getName)
+                .filter(dish -> {
+                    System.out.println("filtering: " + dish.getName());
+                    return dish.getCalories() > 300;
+                })
+                .map(dish -> {
+                    System.out.println("Mapping: " + dish.getName());
+                    return dish.getName();
+                })
                 .limit(3)
                 .toList();
+
         // [pork, beef, chicken]
         System.out.println("Names: " + names);
     }
