@@ -98,5 +98,7 @@ public class Reducing {
         System.out.println("Vegetarian Dishes: " + partitionedMenu.get(true));
         System.out.println("Non-Vegetarian Dishes: " + partitionedMenu.get(false));
 
+
+
     }
 }
