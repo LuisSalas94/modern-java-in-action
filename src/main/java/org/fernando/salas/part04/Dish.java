@@ -13,6 +13,14 @@ public class Dish {
         this.type = type;
     }
 
+    public enum CaloricLevel {DIET, NORMAL, FAT}
+
+    public CaloricLevel getCaloricLevel() {
+        if (this.getCalories() <= 400) return CaloricLevel.DIET;
+        else if (this.getCalories() <= 700) return CaloricLevel.NORMAL;
+        else return CaloricLevel.FAT;
+    }
+
     public String getName() {
         return name;
     }
