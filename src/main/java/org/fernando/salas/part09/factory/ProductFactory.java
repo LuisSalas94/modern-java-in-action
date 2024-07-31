@@ -40,7 +40,7 @@ public class ProductFactory {
 
     public static void main(String[] args) {
         Product product = ProductFactory.createProduct("loan");
-        
+
     }
 
 }
