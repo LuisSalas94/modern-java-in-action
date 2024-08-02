@@ -1,10 +1,8 @@
 package org.fernando.salas.part12;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class DateDemo {
@@ -66,7 +64,47 @@ public class DateDemo {
         int second = time.getSecond();
         System.out.println("second: " + second);
 
-        
+        // Creating a LocalDateTime directly or by combining a date and a time
+        LocalDateTime dt1 = LocalDateTime.of(2017, Month.SEPTEMBER, 21, 13, 45, 20);
+        System.out.println("dt1: " + dt1);
 
+        LocalDateTime dt2 = LocalDateTime.of(date, time);
+        System.out.println("dt2: " + dt2);
+
+        LocalDateTime dt3 = date.atTime(12, 45, 20);
+        System.out.println("dt3: " + dt3);
+
+        LocalDateTime dt4 = date.atTime(time);
+        System.out.println("dt4: " + dt4);
+
+        LocalDateTime dt5 = time.atDate(date);
+        System.out.println("dt5: " + dt5);
+
+
+        Period tenDays = Period.between(LocalDate.of(2017, 9, 11),
+                LocalDate.of(2017, 9, 21));
+        // P10D
+        System.out.println("tenDays: " + tenDays);
+
+        // Creating Durations and Periods
+        Duration threeMinutes = Duration.ofMinutes(3);
+        // PT3M
+        System.out.println("threeMinutes: " + threeMinutes);
+
+        Duration threeMinutes2 = Duration.of(3, ChronoUnit.MINUTES);
+        // PT3M
+        System.out.println("threeMinutes2: " + threeMinutes2);
+
+        Period tenDays2 = Period.ofDays(10);
+        // P10D
+        System.out.println("tenDays2: " + tenDays2);
+
+        Period threeWeeks = Period.ofWeeks(3);
+        // P21D
+        System.out.println("threeWeeks: " + threeWeeks);
+
+        Period twoYearsSixMonthsOneDay = Period.of(2, 6, 1);
+        // P2Y6M1D
+        System.out.println("twoYearsSixMonthsOneDay: " + twoYearsSixMonthsOneDay);
     }
 }
